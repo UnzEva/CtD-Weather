@@ -1,2 +1,2 @@
-# CtD-Weather
-Pre-work assignment "Weather Online" - a weather API
+# Weather Online
+Code the Dream pre-work assignment - a weather API
