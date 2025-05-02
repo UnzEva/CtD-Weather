@@ -1,5 +1,5 @@
 # Weather Online
-Code the Dream pre-work assignment - a weather API
+
 The app fetches real-time weather data using the [Open-Meteo API](https://open-meteo.com/) and displays it with intuitive icons and clear information.
 
 ## Features
