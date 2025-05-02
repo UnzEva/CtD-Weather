@@ -30,9 +30,8 @@ weather-online/
 
 ## Getting Started
 
-1. Clone or download the repository.
-2. Open `index.html` in a browser.
-3. Start typing a city name and hit **Refresh**.
+1. Click [Weather Online](https://unzeva.github.io/CtD-Weather/).
+2. Start typing a city name and hit **Refresh**.
 
 ## License
 
