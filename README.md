@@ -4,20 +4,22 @@ The app fetches real-time weather data using the [Open-Meteo API](https://open-m
 
 ## Features
 
-- 🔍 Search for weather by city name
-- 🌡️ View temperature and wind speed
-- 🌍 Displays country and region
-- 🎨 Clean, responsive UI
-- 🔄 Refresh button to update weather
-- ☁️ Emoji-based weather icons
+- Search for weather by city name
+- View temperature and wind speed
+- Displays country and region
+- Refresh button to update weather
+- Emoji-based weather icons
 
 ## Project Structure
+
+```
 weather-online/
 ├── index.html
 ├── css/
 │ └── style.css
 └── js/
 └── script.js
+```
 
 ## How It Works
 
