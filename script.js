@@ -7,7 +7,7 @@ const temperature = document.getElementById('temperature');
 const weatherDescription = document.getElementById('weatherDescription');
 const weatherIcon =document.getElementById('weatherIcon');
 
-// Маппинг иконок по weathercode (упрощённо)
+//Icon Mapping
 const weatherIcons = {
     0: '☀️', // clear
     1: '🌤️', // mainly clear
@@ -32,7 +32,7 @@ const weatherIcons = {
         lon: location.longitude,
         name: location.name,
         country: location.country,
-        admin1: location.admin1 || '' // регион
+        admin1: location.admin1 || '' // Region
       };
     } else {
       throw new Error("City not found");
@@ -75,7 +75,7 @@ const weatherIcons = {
   }
   
   
-  // Обработчик кнопки
+  //Button
   refreshButton.addEventListener('click', () => {
     const city = cityInput.value.trim();
     if (city) {
@@ -83,7 +83,7 @@ const weatherIcons = {
     }
   });
   
-  // Показать погоду по умолчанию при загрузке
+  // Default weather
   window.addEventListener('load', () => {
     getWeather('New York');
   });
