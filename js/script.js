@@ -85,6 +85,6 @@ const weatherIcons = {
   
   // Default weather
   window.addEventListener('load', () => {
-    getWeather('New York');
+    getWeather('Washington');
   });
     
