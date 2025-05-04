@@ -31,7 +31,8 @@ weather-online/
 ## Getting Started
 
 1. Click [Weather Online](https://unzeva.github.io/CtD-Weather/).
-2. Start typing a city name and hit **Refresh**.
+2. Washington weather is displayed by default.
+3. Start typing a city name and hit **Refresh**.
 
 ## License
 
