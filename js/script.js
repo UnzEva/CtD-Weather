@@ -1,7 +1,7 @@
 const cityInput = document.getElementById('cityInput');
 const refreshButton = document.getElementById('refreshButton');
 
-const cityName = document.getElementById('cityName');
+const cityName = document.getElementById('citycard');
 const regionCountry = document.getElementById('regionCountry');
 const temperature = document.getElementById('temperature');
 const weatherDescription = document.getElementById('weatherDescription');
