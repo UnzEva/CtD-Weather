@@ -49,7 +49,7 @@ const weatherIcons = {
       const data = await response.json();
       const weather = data.current_weather;
   
-      // Отображение
+      // display
       cityName.textContent = location.name;
       regionCountry.textContent = `${location.admin1}, ${location.country}`;
       temperature.textContent = `${weather.temperature}°C`;
@@ -57,7 +57,7 @@ const weatherIcons = {
   
       const icon = weatherIcons[weather.weathercode] || '❓';
   
-      // Иконку теперь выводим как просто текст (emoji) в <div>
+      // display the icon as simple text (emoji)
       const weatherIconDiv = document.getElementById('weatherIcon');
       weatherIconDiv.innerHTML = icon;
       weatherIconDiv.style.fontSize = '48px';
