@@ -94,13 +94,16 @@ async function getForecast(city) {
   }
 }
   
-  //Button
-  refreshButton.addEventListener('click', () => {
-    const city = cityInput.value.trim();
-    if (city) {
+  // Bind buttons
+     document.getElementById('currentBtn').addEventListener('click', () => {
+      const city = cityInput.value.trim() || 'Washington';
       getWeather(city);
-    }
-  });
+    });
+
+    document.getElementById('forecastBtn').addEventListener('click', () => {
+      const city = cityInput.value.trim() || 'Washington';
+      getForecast(city);
+    });
   
   // Default weather
   window.addEventListener('load', () => {
