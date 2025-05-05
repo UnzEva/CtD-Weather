@@ -18,7 +18,7 @@ weather-online/
 ├── css/
 │ └── style.css
 └── js/
-└── script.js
+│ └── script.js
 └── README.md 
 ```
 
