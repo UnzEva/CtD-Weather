@@ -73,7 +73,26 @@ const weatherIcons = {
       weatherIconDiv.innerHTML = '';
     }
   }
-  
+
+async function getForecast(city) {
+  try {
+    const location = await getCoords(city);
+    const forecastUrl = `https://api.open-meteo.com/v1/forecast?latitude=${location.lat}&longitude=${location.lon}&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
+    const response = await fetch(forecastUrl);
+    const data = await response.json();
+
+    const forecastData = data.daily;
+    let forecastHtml = `<h2>5-Day Forecast for ${location.name}</h2><ul>`;
+    for (let i = 0; i < 5; i++) {
+      forecastHtml += `<li>${forecastData.time[i]}: ${forecastData.temperature_2m_max[i]}°C / ${forecastData.temperature_2m_min[i]}°C</li>`;
+    }
+    forecastHtml += '</ul>';
+    weatherCard.innerHTML = forecastHtml;
+  } catch (error) {
+    console.error(error);
+    weatherCard.innerHTML = 'Forecast not available.';
+  }
+}
   
   //Button
   refreshButton.addEventListener('click', () => {
