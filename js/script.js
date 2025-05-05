@@ -40,39 +40,33 @@ const weatherIcons = {
   }
   
   async function getWeather(city) {
-    try {
-      const location = await getCoords(city);
-  
-      const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${location.lat}&longitude=${location.lon}&current_weather=true`;
-  
-      const response = await fetch(weatherUrl);
-      const data = await response.json();
-      const weather = data.current_weather;
-  
-      // display
-      cityName.textContent = location.name;
-      regionCountry.textContent = `${location.admin1}, ${location.country}`;
-      temperature.textContent = `${weather.temperature}°C`;
-      weatherDescription.textContent = `Wind: ${weather.windspeed} km/h`;
-  
-      const icon = weatherIcons[weather.weathercode] || '❓';
-  
-      // display the icon as simple text (emoji)
-      const weatherIconDiv = document.getElementById('weatherIcon');
-      weatherIconDiv.innerHTML = icon;
-      weatherIconDiv.style.fontSize = '48px';
-  
-    } catch (error) {
-      console.error(error);
-      cityName.textContent = 'City not found';
-      regionCountry.textContent = '';
-      temperature.textContent = '--';
-      weatherDescription.textContent = '';
-  
-      const weatherIconDiv = document.getElementById('weatherIcon');
-      weatherIconDiv.innerHTML = '';
+      try {
+        const location = await getCoords(city);
+        const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${location.lat}&longitude=${location.lon}&current_weather=true`;
+        const response = await fetch(weatherUrl);
+        const data = await response.json();
+        const weather = data.current_weather;
+
+        // Display data
+        document.getElementById('citycard').textContent = location.name;
+        document.getElementById('regionCountry').textContent = `${location.admin1}, ${location.country}`;
+        document.getElementById('temperature').textContent = `${weather.temperature}°C`;
+        document.getElementById('weatherDescription').textContent = `Wind: ${weather.windspeed} km/h`;
+        document.getElementById('weatherIcon').innerHTML = weatherIcons[weather.weathercode] || '❓';
+
+        // Toggle visibility
+        document.getElementById('currentWeather').style.display = 'block';
+        document.getElementById('forecastWeather').style.display = 'none';
+
+      } catch (error) {
+        console.error(error);
+        document.getElementById('citycard').textContent = 'City not found';
+        document.getElementById('regionCountry').textContent = '';
+        document.getElementById('temperature').textContent = '--';
+        document.getElementById('weatherDescription').textContent = '';
+        document.getElementById('weatherIcon').innerHTML = '';
+      }
     }
-  }
 
 async function getForecast(city) {
   try {
@@ -80,20 +74,27 @@ async function getForecast(city) {
     const forecastUrl = `https://api.open-meteo.com/v1/forecast?latitude=${location.lat}&longitude=${location.lon}&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
     const response = await fetch(forecastUrl);
     const data = await response.json();
-
     const forecastData = data.daily;
+
     let forecastHtml = `<h2>5-Day Forecast for ${location.name}</h2><ul>`;
     for (let i = 0; i < 5; i++) {
-      forecastHtml += `<li>${forecastData.time[i]}: ${forecastData.temperature_2m_max[i]}°C / ${forecastData.temperature_2m_min[i]}°C</li>`;
+      forecastHtml += `<li><strong>${forecastData.time[i]}</strong>: ${forecastData.temperature_2m_max[i]}°C / ${forecastData.temperature_2m_min[i]}°C</li>`;
     }
     forecastHtml += '</ul>';
-    weatherCard.innerHTML = forecastHtml;
+
+    // Insert forecast HTML
+    document.getElementById('forecastWeather').innerHTML = forecastHtml;
+
+    // Toggle visibility
+    document.getElementById('currentWeather').style.display = 'none';
+    document.getElementById('forecastWeather').style.display = 'block';
+
   } catch (error) {
     console.error(error);
-    weatherCard.innerHTML = 'Forecast not available.';
+    document.getElementById('forecastWeather').innerHTML = 'Forecast not available.';
   }
 }
-  
+
   // Bind buttons
      document.getElementById('currentBtn').addEventListener('click', () => {
       const city = cityInput.value.trim() || 'Washington';
