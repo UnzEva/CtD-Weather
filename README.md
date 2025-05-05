@@ -1,13 +1,13 @@
 # Weather Online
 
-The app fetches real-time weather data using the [Open-Meteo API](https://open-meteo.com/) and displays it with intuitive icons and clear information.
+The app fetches real-time weather data using the [Open-Meteo API](https://open-meteo.com/).
 
 ## Features
 
 - Search for weather by city name
-- View temperature and wind speed
-- Displays country and region
-- Refresh button to update weather
+- View **current temperature**, wind speed, and region
+- View **5-day forecast** with daily max/min temperatures
+- Navigation buttons to switch between current weather and forecast views
 - Emoji-based weather icons
 
 ## Project Structure
@@ -19,20 +19,25 @@ weather-online/
 │ └── style.css
 └── js/
 └── script.js
+└── README.md 
 ```
 
 ## How It Works
 
 1. User enters a city name.
 2. The app uses the [Open-Meteo Geocoding API](https://open-meteo.com/en/docs/geocoding-api) to get coordinates.
-3. Then it fetches current weather data using the [Open-Meteo Forecast API](https://open-meteo.com/en/docs#api_form).
-4. Weather information is displayed with relevant icon and values.
+3. On clicking **"Current Weather"**:
+   - The app sends a GET request to the [Forecast API](https://open-meteo.com/en/docs#api_form) to get `current_weather`.
+4. On clicking **"5-Day Forecast"**:
+   - The app fetches `daily` forecast data.
+5. All data is displayed in a central card with weather icons.
 
 ## Getting Started
 
 1. Click [Weather Online](https://unzeva.github.io/CtD-Weather/).
-2. Washington weather is displayed by default.
-3. Start typing a city name and hit **Refresh**.
+2. **Washington** weather is displayed by default.
+3. Type any city name in the input field.
+4. Click **"Current Weather"** or **"5-Day Forecast"** to switch views.
 
 ## License
 
