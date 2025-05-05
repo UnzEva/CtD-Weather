@@ -12,7 +12,7 @@
 <body>
 	<header>
 		<h1>Weather Online</h1> 
-		<p>Just enter the city name and click "Refresh".</p>
+		<p>Just enter the city name and click the button.</p>
 	</header>
 
 	<main>
@@ -29,14 +29,18 @@
     		</div>
 		
 		<div class="main-conteiner" id="weatherCard">
-			<h2 id="citycard">City Name</h2>
-			<h4 id="regionCountry">Region, Country</h4>
-			<div id="weatherIcon" style="font-size: 48px;"></div>
-			<p id="temperature">-- °C</p>
-			<p id="weatherDescription">Description</p>
+		<!-- Current weather block -->
+  			<div id="currentWeather">
+    				<h2 id="citycard">City Name</h2>
+    				<h4 id="regionCountry">Region, Country</h4>
+    				<div id="weatherIcon"></div>
+    				<p id="temperature">-- °C</p>
+    				<p id="weatherDescription">Description</p>
+  			</div>
 
-			<!--<button class="refresh-conteiner" id="refreshButton">Refresh</button>-->
-		</div>
+  		<!-- Forecast block -->
+  			<div id="forecastWeather" style="display: none;"></div>
+			</div>
 	</main>
 
 	<footer>
