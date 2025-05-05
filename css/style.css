@@ -64,3 +64,8 @@ body {
 header {
   text-align: center;
 }
+
+#weatherIcon {
+    font-size: 48px;
+    margin: 10px 0;
+}
