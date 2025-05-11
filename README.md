@@ -27,7 +27,7 @@ weather-online/
 1. User enters a city name.
 2. The app uses the [Open-Meteo Geocoding API](https://open-meteo.com/en/docs/geocoding-api) to get coordinates.
 3. On clicking **"Current Weather"**:
-   - The app sends a GET request to the [Forecast API](https://open-meteo.com/en/docs#api_form) to get `current_weather`.
+   - The app sends a GET request to the [Forecast API](https://open-meteo.com/en/docs#api_form) to get `current weather`.
 4. On clicking **"5-Day Forecast"**:
    - The app fetches `daily` forecast data.
 5. All data is displayed in a central card with weather icons.
